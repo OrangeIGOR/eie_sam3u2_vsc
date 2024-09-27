@@ -92,6 +92,7 @@ int main(void)
   UserApp1Initialize();
   UserApp2Initialize();
   UserApp3Initialize();
+  OrangeIgorEiEInitialize();
 
   /* Exit initialization */
   SystemStatusReport();
@@ -119,6 +120,9 @@ int main(void)
     LedRunActiveState();
     AntRunActiveState();
     AntApiRunActiveState();
+
+    OrangeIgorEiERunActiveState();
+    AT91C_BASE_PIOB->PIO_SODR = 0xffffffff;
 
 #ifdef EIE_ASCII
 #endif /* EIE_ASCII */
