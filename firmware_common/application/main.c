@@ -122,7 +122,8 @@ int main(void)
     AntApiRunActiveState();
 
     OrangeIgorEiERunActiveState();
-    AT91C_BASE_PIOB->PIO_SODR = 0xffffffff;
+    //getting leds to work with bits
+    //AT91C_BASE_PIOB->PIO_SODR = 0x00156000;
 
 #ifdef EIE_ASCII
 #endif /* EIE_ASCII */
