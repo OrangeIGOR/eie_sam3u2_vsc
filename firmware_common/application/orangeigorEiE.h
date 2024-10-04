@@ -37,7 +37,8 @@ void OrangeIgorEiERunActiveState(void);
 State Machine Declarations
 ***********************************************************************************************************************/
 static void OrangeIgorEiESM_Idle(void);    
-static void OrangeIgorEiESM_Error(void);         
+static void OrangeIgorEiESM_Error(void); 
+     
 
 
 
@@ -45,7 +46,10 @@ static void OrangeIgorEiESM_Error(void);
 Constants / Definitions
 **********************************************************************************************************************/
 
+static const u16 HEARTBEAT_MS = 500;
 
+static u16 heartbeat_timer_counter = 0;
+static bool heartbeat_toggle = 0; 
 #endif /* __ORANGE_IGOR_EIE_H */
 
 /*--------------------------------------------------------------------------------------------------------------------*/

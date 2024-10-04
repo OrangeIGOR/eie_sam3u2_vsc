@@ -92,6 +92,7 @@ Promises:
 */
 void OrangeIgorEiEInitialize(void)
 {
+  HEARTBEAT_OFF();
   /* If good initialization, set state to Idle */
   if( 1 )
   {
@@ -140,7 +141,21 @@ State Machine Function Definitions
 /* What does this state do? */
 static void OrangeIgorEiESM_Idle(void)
 {
-     
+    if (heartbeat_timer_counter == HEARTBEAT_MS)
+    {
+      heartbeat_timer_counter = 0;
+
+      if (heartbeat_toggle == 0)
+      {
+        HEARTBEAT_OFF();
+        heartbeat_toggle = 1;}
+      else
+      {
+        HEARTBEAT_ON();
+        heartbeat_toggle = 0;}
+    }
+
+    heartbeat_timer_counter++;
 } /* end OrangeIgorEiESM_Idle() */
      
 
